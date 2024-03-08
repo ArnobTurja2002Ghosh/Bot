@@ -10,7 +10,7 @@ throughout the scene:
 
 ● 1 trash bin
 
- steering behaviours that can be used:
+ steering behaviours that has been used:
  - arrive
  - wander
  - seek (used by arrive)
