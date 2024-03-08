@@ -11,9 +11,9 @@ throughout the scene:
 ● 1 trash bin
 
  steering behaviours that can be used:
- - arrive (not used yet)
+ - arrive
  - wander
- - seek
+ - seek (used by arrive)
 
 # The beautiful number 3
 - After RecycloBot brings **3** items to their respective bins (either recyclables or trash), they will need to
