@@ -78,7 +78,8 @@ export class ChaseState extends State {
 
 	updateState(guard, gameMap) {
 		if(guard.picked.type==TileNode.Type.Garbage){
-			guard.applyForce(guard.seek(gameMap.localize({x:gameMap.graph.bins.garbage[0],z:gameMap.graph.bins.garbage[1]})));
+			//guard.applyForce(guard.seek(gameMap.localize({x:gameMap.graph.bins.garbage[0],z:gameMap.graph.bins.garbage[1]})));
+			guard.applyForce(guard.arrive(gameMap.localize({x:gameMap.graph.bins.garbage[0],z:gameMap.graph.bins.garbage[1]}), gameMap.tileSize*10));
 			if(gameMap.quantize(guard.location).type == TileNode.Type.TB){
 				//guard.picked = null;
 				guard.drop();
@@ -91,7 +92,8 @@ export class ChaseState extends State {
 			}
 		}
 		else if(guard.picked.type==TileNode.Type.Recyclable){
-			guard.applyForce(guard.seek(gameMap.localize({x:gameMap.graph.bins.recyclable[0],z:gameMap.graph.bins.recyclable[1]})));
+			//guard.applyForce(guard.seek(gameMap.localize({x:gameMap.graph.bins.recyclable[0],z:gameMap.graph.bins.recyclable[1]})));
+			guard.applyForce(guard.arrive(gameMap.localize({x:gameMap.graph.bins.recyclable[0],z:gameMap.graph.bins.recyclable[1]}), gameMap.tileSize*10));
 			if(gameMap.quantize(guard.location).type == TileNode.Type.RB){
 				//guard.picked = null;
 				guard.drop();
@@ -113,15 +115,16 @@ export class ChaseState extends State {
 export class RestState extends State {
 	
 	enterState(guard, gameMap) {
-		guard.topSpeed = 5;
+		guard.topSpeed = 10;
 		console.log("Need a break.");
 	}
 
 	updateState(guard, gameMap) {
-		guard.applyForce(guard.seek(gameMap.localize({x:gameMap.graph.charger[0],z:gameMap.graph.charger[1]})));
+		//guard.applyForce(guard.seek(gameMap.localize({x:gameMap.graph.charger[0],z:gameMap.graph.charger[1]})));
+		guard.applyForce(guard.arrive(gameMap.localize({x:gameMap.graph.charger[0],z:gameMap.graph.charger[1]}), gameMap.tileSize*4));
 		if(gameMap.quantize(guard.location).type == TileNode.Type.Charger){
 			guard.charge=3;
-			guard.topSpeed=0;
+			//guard.topSpeed=0;
 			setTimeout(() => {
 				guard.switchState(gameMap, new PatrolState());
 			}, 3000);

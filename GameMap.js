@@ -78,7 +78,7 @@ export class GameMap {
 					continue loop1;
 				}
 			}
-			if((this.graph.bins.garbage[0]==obs[0] && this.graph.bins.garbage[1]==obs[1])||(this.graph.bins.recyclable[0]==obs[0] && this.graph.bins.recyclable[1]==obs[1])){
+			if((this.graph.bins.garbage[0]==obs[0] && this.graph.bins.garbage[1]==obs[1])||(this.graph.bins.recyclable[0]==obs[0] && this.graph.bins.recyclable[1]==obs[1])||(this.graph.charger[0]==obs[0] && this.graph.charger[1]==obs[1])){
 				continue loop1;
 			}
 			if(this.graph.nodes[this.cols*obs[1]+obs[0]].type!=TileNode.Type.Ground){

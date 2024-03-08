@@ -96,6 +96,31 @@ export class Character {
 		return steer;
 	}
 
+	arrive(target, radius) {
+		let desired = new THREE.Vector3();
+		desired.subVectors(target, this.location);
+	  
+		// get distance of the desired vector
+		// which is the distance to the target
+		// length is built in
+		let distance = desired.length();
+
+		// if distance is less than radius we want
+		// to slow down based on how close we are
+		if (distance < radius) {
+			let speed = (distance/radius) * this.topSpeed;
+			desired.setLength(speed);
+		} else {
+			return this.seek(target);
+		}
+			
+		// steer = desired velocity - current velocity
+		let steer = new THREE.Vector3();
+		steer.subVectors(desired, this.velocity);
+
+		return steer;
+
+	}
 	// Wander steering behaviour
   	wander() {
   		let d = 10;
