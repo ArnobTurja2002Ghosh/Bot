@@ -58,7 +58,7 @@ export class PatrolState extends State {
 			}
 			//console.log(gameMap.graph.recyclable, gameMap.graph.garbage);
 			gameMap.createMess();
-			console.log(gameMap.graph.recyclable, gameMap.graph.garbage);
+			//console.log(gameMap.graph.recyclable, gameMap.graph.garbage);
 			guard.switchState(gameMap, new ChaseState());
 		}
 		//console.log(gameMap.localize({x:gameMap.graph.bins.garbage[0],z:gameMap.graph.bins.garbage[1]}));
