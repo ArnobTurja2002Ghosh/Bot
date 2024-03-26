@@ -21,3 +21,5 @@ go to their charger to charge.
 - Once reaching the charger, RecycloBot will stop and charge for **3**
 seconds.
 - After the **3** seconds have passed, they can resume wandering the canvas.
+
+Respawns tile of type picked up at random location. Tiles respawn as soon as picking and before taking them to the trash/recycle.
